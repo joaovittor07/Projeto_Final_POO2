@@ -1,0 +1,75 @@
+@startuml
+class DataSet [[java:EstatisticaFramework.DataSet]] {
+	-dados: List<List<String>>
+	+DataSet(arquivo: String)
+	-carregarCSV(arquivo: String): void
+	+getDados(): List<List<String>>
+	+getAltura(): int
+	+getLargura(): int
+	+getColuna(numeroColuna: int): List<Double>
+	-isDouble(str: String): boolean
+}
+class Roll [[java:EstatisticaFramework.Roll]] {
+	-coluna: List<Double>
+	-frequencia: List<List<Double>>
+	-header: String[]
+	-classes: List<String>
+	-fi: List<Integer>
+	-Fi: List<Integer>
+	-fr: List<Double>
+	-Fr: List<Double>
+	-medias: List<Double>
+	-fiFinal: int
+	-frFinal: double
+	+Roll(coluna: List<Double>, frequencia: List<List<Double>>)
+	-calcularRoll(): void
+	+getColuna(): List<Double>
+	+getFrequencia(): List<List<Double>>
+	+getHeader(): String[]
+	+getClasses(): List<String>
+	+getfi(): List<Integer>
+	+getFi(): List<Integer>
+	+getfr(): List<Double>
+	+getFr(): List<Double>
+	+getMedias(): List<Double>
+	+getfiFinal(): int
+	+getfrFinal(): double
+}
+class EstatisticaFramework [[java:EstatisticaFramework.EstatisticaFramework]] {
+	+EstatisticaFramework()
+	+calcularMedia(ds: DataSet): List<Double>
+	+calcularMedia(ds: DataSet, numeroColuna: int): double
+	+calcularModa(ds: DataSet): List<Double>
+	+calcularModa(ds: DataSet, numeroColuna: int): double
+	+calcularMediana(ds: DataSet): List<Double>
+	+calcularMediana(ds: DataSet, numeroColuna: int): double
+	+calcularVariancia(ds: DataSet): List<Double>
+	+calcularVariancia(ds: DataSet, numeroColuna: int): double
+	+calcularDesvioPadrao(ds: DataSet): List<Double>
+	+calcularDesvioPadrao(ds: DataSet, numeroColuna: int): double
+	+calcularDesvioMedio(ds: DataSet): List<Double>
+	+calcularDesvioMedio(ds: DataSet, numeroColuna: int): double
+	+getMax(ds: DataSet): List<Double>
+	+getMax(ds: DataSet, numeroColuna: int): double
+	+getMin(ds: DataSet): List<Double>
+	+getMin(ds: DataSet, numeroColuna: int): double
+	+gerarRoll(ds: DataSet): List<Roll>
+	+gerarRoll(ds: DataSet, numeroColuna: int): Roll
+	+gerarGraficoHistograma(ds: DataSet, arquivo: String): boolean
+	+gerarGraficoHistograma(ds: DataSet, numeroColuna: int, arquivo: String): boolean
+	+gerarGraficoSetores(ds: DataSet, arquivo: String): boolean
+	+gerarGraficoSetores(ds: DataSet, numeroColuna: int, arquivo: String): boolean
+	+gerarGraficoPareto(ds: DataSet, arquivo: String): boolean
+	+gerarGraficoPareto(ds: DataSet, numeroColuna: int, arquivo: String): boolean
+	-gerarGrafico(ds: DataSet, numeroColuna: int, arquivo: String, tipo: String): boolean
+	+gerarRelatorio(ds: DataSet, arquivo: String): boolean
+	+gerarRelatorio(ds: DataSet, numeroColuna: int, arquivo: String): boolean
+	-isIntArray(numeros: double[]): boolean
+	-doubleParaInt(numeros: double[]): int[]
+	-doubleParaString(numeros: double[]): String[]
+	-intParaString(numeros: int[]): String[]
+	+getFrequencia(ds: DataSet, numeroColuna: int): List<List<Double>>
+}
+EstatisticaFramework ..> DataSet : uses
+EstatisticaFramework ..> Roll : uses
+@enduml

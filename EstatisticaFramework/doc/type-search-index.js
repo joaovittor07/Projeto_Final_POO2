@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"EstatisticaFramework","l":"DataSet"},{"p":"EstatisticaFramework","l":"EstatisticaFramework"},{"p":"EstatisticaFramework","l":"Roll"}];updateSearchResults();
